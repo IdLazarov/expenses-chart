@@ -37,16 +37,45 @@ body{
     background-color: var(--soft-red);
     font-size: 16px;   
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    position: relative;
+}
+.balance-title{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    border-radius: 1rem;
 }
 
-.total-balance div{
-    padding: 0.2rem;
+.white-circle{
+    margin: 0;
+    padding: 0;
+    background-color: none;
+    border: solid white 3px;
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    position: absolute;
+    left: 330px
+}
+
+.black-circle{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.total-balance-title{
+    margin-top: 0.3rem;
 }
 .total-balance-value{
+    padding: 0;
+    margin:0;
     font-size: 28px;
     font-weight: 700;
 }
@@ -92,7 +121,7 @@ body{
     max-width: 80vw;
     display: flex;
     justify-content: space-evenly;  
-    gap:0.8rem;
+    
 }
 
 hr{
