@@ -11,17 +11,17 @@ const d = new Date();
 let dayOfTheWeek = d.getDay();
 let mobileSizeEnd = window.matchMedia("(max-width: 414px)")
 let windowWidth = window.innerWidth;
-
+let rightness = 5;
+let dayBalanceWidth = 60;
 
 const addDays = (data) => {
 
     
     data.map((dataItem, index)=>{
         let listItemStyle = `margin:5px;height:${dataItem.amount*2}px;width:10vw;max-width:50px;max-height:150px;border-radius:0.3rem;position:relative;`;
-        let dayBalanceStyle = `background-color: ${"#4a5354"};color:"#edf4f5";width:15vw;max-width:60px;height:25px;padding-top:5px;position:relative;top:-55px;right:10px;border-radius:0.3rem;visibility:hidden;text-align:center;z-index:100;`;
-        // console.log(dataItem.day);
-        // console.log(dataItem.amount);
-        console.log(windowWidth);
+        let dayBalanceStyle = `background-color: ${"#4a5354"};color:"#edf4f5";width:${dayBalanceWidth}px;height:25px;padding-top:5px;position:relative;top:-55px;right:${rightness}px;border-radius:0.3rem;visibility:hidden;text-align:center;z-index:100;`;
+        
+        
         const amountList = document.createElement("li");
         const dayBalance = document.createElement("p");
         const dayBalanceValue = document.createTextNode(`$${dataItem.amount}`);
@@ -32,6 +32,19 @@ const addDays = (data) => {
         
         dayBalance.style.cssText = `${dayBalanceStyle}`;
         amountList.appendChild(dayBalance); 
+
+        //Improvised media query :)
+            if(windowWidth <= 500){
+                rightness = 9;
+                dayBalanceWidth = 55;
+            }
+            else{
+                rightness = 5;
+                dayBalanceWidth = 60;
+            }
+        
+        
+
         if(index === dayOfTheWeek){
             amountList.style.cssText = `background-color: ${"#76B5BC"};${listItemStyle}`;
             amountList.onmouseenter = ()=>{
