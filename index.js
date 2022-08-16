@@ -1,9 +1,15 @@
 
-const data = fetch("../data.json")
+fetch("./data.json")
 .then(response => {
+    // console.log(response)
    return response.json();
 })
-.then(data => addDays(data));
+// .then(data=> console.log(data))
+.then(data => addDays(data))
+.catch(error=>console.log(error.message));
+
+
+
 
 const weekList = document.querySelector(".chart-list");
 const weekdaysList = document.querySelector(".days-list");
@@ -84,4 +90,5 @@ const addDays = (data) => {
 
 }
 
-// this.onmouseover = ()=>{amountList.style.cssText = `background-color:${"#76B5BC"}`};
+
+
